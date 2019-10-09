@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/mnInbox" android:title="Inbox" android:icon="@drawable/ic_mail_black_24dp"/>
+        <item android:id="@+id/mnOutbox" android:title="Outbox" android:icon="@drawable/ic_send_black_24dp"/>
+        <item android:id="@+id/mnTrash" android:title="Báo cáo hoạt động trong ca" android:icon="@drawable/ic_delete_black_24dp"/>
+        <item android:id="@+id/mnExit" android:title="Thoát" android:icon="@drawable/ic_error_black_24dp"/>
+    </group>
+    <group android:id="@+id/groupdongvat">
+
+    </group>
+    <item android:title="List Dog" android:icon="@drawable/ic_share_black_24dp">
+        <menu>
+        </menu>
+    </item>
+</menu>

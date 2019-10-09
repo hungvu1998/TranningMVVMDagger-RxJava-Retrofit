@@ -1,0 +1,4 @@
+# Referenced at C:\Users\HungVV\Desktop\TranningMVVMDagger-RxJava-Retrofit-master\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:22
+-keep class androidx.core.app.CoreComponentFactory { <init>(); }
+# Referenced at C:\Users\HungVV\Desktop\TranningMVVMDagger-RxJava-Retrofit-master\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:22
+-keep class com.example.testrxandretro.BaseApplication { <init>(); }

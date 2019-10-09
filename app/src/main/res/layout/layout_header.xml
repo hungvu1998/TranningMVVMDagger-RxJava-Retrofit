@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/banner"
+    android:padding="20dp"
+    android:layout_height="160dp">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="75dp"
+        android:src="@drawable/anhdaidien"
+        android:layout_height="75dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Hưng Vũ"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="hunghann1998@gmail.com"
+        android:textColor="@color/colorWhite"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

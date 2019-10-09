@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">DaggerPractice</string>
+    <string name="posts">Posts</string>
+    <string name="profile">Profile</string>
+    <string name="logout">logout</string>
+
+    <string name="fragment_profile">Profile</string>
+    <string name="fragment_posts">Posts</string>
+
+
+    <string name="user_name">User name</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+
+    <string name="bannerSignIn">SignIn</string>
+    <string name="contentSignIn">Dogs are Helpful, not Painful</string>
+    <string name="hintEmail">Email</string>
+    <string name="hintPassword">Password</string>
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
+</resources>
