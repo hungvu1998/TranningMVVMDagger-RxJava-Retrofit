@@ -1,13 +1,12 @@
 package com.example.testrxandretro.ui.main2
 
 import android.os.Parcelable
-import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 
 import androidx.fragment.app.FragmentStatePagerAdapter
 
-import com.example.testrxandretro.model.DogModel
+import com.example.testrxandretro.data.model.DogModel
 import com.example.testrxandretro.ui.main2.dog.DogFragment
 
 
@@ -29,10 +28,7 @@ class ViewPageMain2Adapter (fm: FragmentManager) : FragmentStatePagerAdapter(fm)
 
     override fun getCount(): Int {
 
-        return if (dogList.isNotEmpty()) {
-            return dogList.size
-        }
-            else return 0
+        return dogList.size
 
 
     }

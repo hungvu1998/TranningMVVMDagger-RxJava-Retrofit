@@ -2096,12 +2096,12 @@
         "source": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\src\\main\\res\\layout\\fragment_posts.xml"
     },
     {
-        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_ic_mr_button_connected_13_dark.png.flat",
-        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\8c3082df85ee3e8b2ea4e106eef98544\\res\\drawable-xhdpi-v4\\ic_mr_button_connected_13_dark.png"
-    },
-    {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_lock_outline_black_24dp.png.flat",
         "source": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_lock_outline_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_ic_mr_button_connected_13_dark.png.flat",
+        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\8c3082df85ee3e8b2ea4e106eef98544\\res\\drawable-xhdpi-v4\\ic_mr_button_connected_13_dark.png"
     },
     {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\interpolator_btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml.flat",
@@ -4700,20 +4700,20 @@
         "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\eb4cd0a0753da5ef53b1ce4ddaf0d6c4\\res\\anim\\design_snackbar_in.xml"
     },
     {
-        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
-        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\73a358994081375973c126d117cb5b5d\\res\\drawable-mdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
-    },
-    {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_perm_identity_black_24dp.png.flat",
         "source": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_perm_identity_black_24dp.png"
     },
     {
-        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_ic_mr_button_connected_24_dark.png.flat",
-        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\8c3082df85ee3e8b2ea4e106eef98544\\res\\drawable-xxhdpi-v4\\ic_mr_button_connected_24_dark.png"
+        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
+        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\73a358994081375973c126d117cb5b5d\\res\\drawable-mdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
     },
     {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_lock_outline_black_24dp.png.flat",
         "source": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_lock_outline_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_ic_mr_button_connected_24_dark.png.flat",
+        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\8c3082df85ee3e8b2ea4e106eef98544\\res\\drawable-xxhdpi-v4\\ic_mr_button_connected_24_dark.png"
     },
     {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
@@ -4808,6 +4808,10 @@
         "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\73a358994081375973c126d117cb5b5d\\res\\interpolator\\fast_out_slow_in.xml"
     },
     {
+        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_lock_outline_black_24dp.png.flat",
+        "source": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_lock_outline_black_24dp.png"
+    },
+    {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_quantum_ic_pause_white_24.png.flat",
         "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\9e9a8cf37b44086576a4e6a0d0555d9b\\res\\drawable-xxhdpi-v4\\quantum_ic_pause_white_24.png"
     },
@@ -4818,10 +4822,6 @@
     {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_detail_dog.xml.flat",
         "source": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\src\\main\\res\\layout\\fragment_detail_dog.xml"
-    },
-    {
-        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_lock_outline_black_24dp.png.flat",
-        "source": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_lock_outline_black_24dp.png"
     },
     {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_quantum_ic_stop_grey600_36.png.flat",
@@ -5128,12 +5128,12 @@
         "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\8c3082df85ee3e8b2ea4e106eef98544\\res\\drawable-xxhdpi-v4\\ic_mr_button_connecting_15_dark.png"
     },
     {
-        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_quantum_ic_pause_circle_filled_white_36.png.flat",
-        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\9e9a8cf37b44086576a4e6a0d0555d9b\\res\\drawable-xxhdpi-v4\\quantum_ic_pause_circle_filled_white_36.png"
-    },
-    {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_perm_identity_black_24dp.png.flat",
         "source": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_perm_identity_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_quantum_ic_pause_circle_filled_white_36.png.flat",
+        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\9e9a8cf37b44086576a4e6a0d0555d9b\\res\\drawable-xxhdpi-v4\\quantum_ic_pause_circle_filled_white_36.png"
     },
     {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_ic_mr_button_connecting_15_dark.png.flat",

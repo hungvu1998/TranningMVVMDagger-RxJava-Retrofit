@@ -2,10 +2,8 @@ package com.example.testrxandretro.ui.main.post
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.example.testrxandretro.model.Post
-import com.example.testrxandretro.model.User
+import com.example.testrxandretro.data.model.Post
 import com.example.testrxandretro.network.main.MainApi
-import com.example.testrxandretro.ui.auth.AuthResource
 import com.example.testrxandretro.ui.main.Resource
 import com.example.testrxandretro.viewmodels.SessionManager
 import io.reactivex.functions.Function

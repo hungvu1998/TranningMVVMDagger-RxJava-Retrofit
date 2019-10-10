@@ -1,10 +1,8 @@
 package com.example.testrxandretro.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.Observer
-import com.example.testrxandretro.model.User
+import com.example.testrxandretro.data.model.User
 import com.example.testrxandretro.ui.auth.AuthResource
 import javax.inject.Inject
 import javax.inject.Singleton

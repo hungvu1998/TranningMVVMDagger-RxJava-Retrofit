@@ -6,11 +6,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.testrxandretro.R
-import com.example.testrxandretro.model.DogModel
+import com.example.testrxandretro.data.model.DogModel
 
 import com.example.testrxandretro.viewmodels.ViewModelProvidersFactory
 import dagger.android.support.DaggerFragment
@@ -21,12 +20,8 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.LiveDataReactiveStreams
-import com.example.testrxandretro.ui.main.Resource
 import com.example.testrxandretro.ui.popup.PopUpFullImage
 
 
@@ -115,8 +110,7 @@ class DogFragment : DaggerFragment(),RecyclerClickItem{
         recyclerDogs.layoutManager = layoutManager
         // val itemDecoration = VerticalSpacingItemDecoration(15)
         //recyclerDogs.addItemDecoration(itemDecoration)
-        if(dogModel!=null)
-        adapter.setPosts(dogModel!!)
+        adapter.setPosts(dogModel)
         Log.d("kiemtra",""+dogModel.breedName)
         Log.d("kiemtra",""+dogModel.message!!.size)
         recyclerDogs.adapter = adapter
@@ -137,14 +131,14 @@ class DogFragment : DaggerFragment(),RecyclerClickItem{
                 val count = data.clipData!!.itemCount
                 for (i in 0 until count) {
                     val imageUri = data.clipData!!.getItemAt(i).uri
-                    dogModel!!.message!!.add(imageUri.toString())
+                    dogModel.message!!.add(imageUri.toString())
                 }
             }
             else if (data.data != null) {
-                dogModel!!.message!!.add(data.data.toString())
+                dogModel.message!!.add(data.data.toString())
             }
 
-            adapter.setPosts(dogModel!!)
+            adapter.setPosts(dogModel)
         }
     }
 

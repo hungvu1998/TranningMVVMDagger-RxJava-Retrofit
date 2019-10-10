@@ -100,7 +100,7 @@ class LoginActivity : DaggerAppCompatActivity(),LoginNavigator,FirebaseAuth.Auth
 
 
     override fun onAuthStateChanged(p0: FirebaseAuth) {
-        val user = firebaseAuth!!.currentUser
+        val user = firebaseAuth.currentUser
         if (user != null) {
             onLoginSucce()
         }
@@ -166,8 +166,8 @@ class LoginActivity : DaggerAppCompatActivity(),LoginNavigator,FirebaseAuth.Auth
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode === REQUESTCODE_LOGIN_GOOOGLE) {
-            if (resultCode === Activity.RESULT_OK) {
+        if (requestCode == REQUESTCODE_LOGIN_GOOOGLE) {
+            if (resultCode == Activity.RESULT_OK) {
                 val signInResult = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
                 val googleSignInAccount = signInResult.signInAccount
                 val tokenID = googleSignInAccount!!.idToken

@@ -7,11 +7,9 @@ import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.RequestManager
 import com.example.testrxandretro.R
-import com.example.testrxandretro.model.User
 import com.example.testrxandretro.ui.main.MainActivity
 import com.example.testrxandretro.viewmodels.ViewModelProvidersFactory
 import dagger.android.support.DaggerAppCompatActivity

@@ -9,6 +9,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.testrxandretro.BaseApplication
 import com.example.testrxandretro.R
 import com.example.testrxandretro.util.Constants
+import com.example.testrxandretro.util.Utils
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -53,7 +54,9 @@ class AppModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-
+    @Provides
+    @Singleton
+    fun provideUtils(application: Application): Utils = Utils(application)
 
 
 }

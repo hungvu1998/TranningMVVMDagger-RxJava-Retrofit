@@ -1,10 +1,8 @@
 package com.example.testrxandretro.network.main
 
-import com.example.testrxandretro.model.Post
-import com.example.testrxandretro.model.User
+import com.example.testrxandretro.data.model.Post
 import io.reactivex.Flowable
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface MainApi{

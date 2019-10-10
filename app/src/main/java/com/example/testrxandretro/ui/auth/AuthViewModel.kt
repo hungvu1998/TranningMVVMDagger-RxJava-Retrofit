@@ -1,16 +1,11 @@
 package com.example.testrxandretro.ui.auth
 
-import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.LiveDataReactiveStreams
-import com.example.testrxandretro.model.User
+import com.example.testrxandretro.data.model.User
 import com.example.testrxandretro.network.auth.AuthApi
 import com.example.testrxandretro.viewmodels.SessionManager
-import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Function
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 

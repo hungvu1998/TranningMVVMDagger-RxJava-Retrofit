@@ -30,7 +30,7 @@ constructor(): ViewModel() {
         return !TextUtils.isEmpty(pass)
     }
     fun loginNormal(userName: String, pass: String) {
-        firebaseAuth!!.signInWithEmailAndPassword(userName, pass).addOnCompleteListener { task ->
+        firebaseAuth.signInWithEmailAndPassword(userName, pass).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 getNavigator()!!.succes(true)
             } else {

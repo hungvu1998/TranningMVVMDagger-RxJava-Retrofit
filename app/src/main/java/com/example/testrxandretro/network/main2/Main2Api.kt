@@ -1,6 +1,6 @@
 package com.example.testrxandretro.network.main2
 
-import com.example.testrxandretro.model.*
+import com.example.testrxandretro.data.model.*
 import io.reactivex.Flowable
 import io.reactivex.Observable
 import retrofit2.http.GET
@@ -10,7 +10,7 @@ interface Main2Api{
 
 
     @GET("breeds/list/all")
-    abstract fun getAllDog():Observable<ResponseBreedList>
+    abstract fun getAllDog():Observable<RootModel>
 
 
     @GET("breed/{name}/images")

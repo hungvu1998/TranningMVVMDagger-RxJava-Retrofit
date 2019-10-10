@@ -49,6 +49,7 @@ import com.example.testrxandretro.ui.main2.dog.DogFragment_MembersInjector;
 import com.example.testrxandretro.ui.main2.dog.DogViewModel;
 import com.example.testrxandretro.ui.main2.dog.DogViewModel_Factory;
 import com.example.testrxandretro.ui.popup.PopUpFullImage;
+import com.example.testrxandretro.util.Utils;
 import com.example.testrxandretro.viewmodels.SessionManager;
 import com.example.testrxandretro.viewmodels.SessionManager_Factory;
 import com.example.testrxandretro.viewmodels.ViewModelProvidersFactory;
@@ -97,6 +98,8 @@ public final class DaggerAppComponent implements AppComponent {
   private Provider<Retrofit> provideRetrofitInstance$app_debugProvider;
 
   private Provider<SessionManager> sessionManagerProvider;
+
+  private Provider<Utils> provideUtilsProvider;
 
   private DaggerAppComponent(Builder builder) {
     initialize(builder);
@@ -230,6 +233,9 @@ public final class DaggerAppComponent implements AppComponent {
         DoubleCheck.provider(
             AppModule_ProvideRetrofitInstance$app_debugFactory.create(builder.appModule));
     this.sessionManagerProvider = DoubleCheck.provider(SessionManager_Factory.create());
+    this.provideUtilsProvider =
+        DoubleCheck.provider(
+            AppModule_ProvideUtilsFactory.create(builder.appModule, applicationProvider));
   }
 
   @Override
@@ -688,7 +694,9 @@ public final class DaggerAppComponent implements AppComponent {
           Main2Module_ProvideMain2ApiFactory.create(
               builder.main2Module,
               DaggerAppComponent.this.provideRetrofitInstance$app_debugProvider);
-      this.main2ViewModelProvider = Main2ViewModel_Factory.create(provideMain2ApiProvider);
+      this.main2ViewModelProvider =
+          Main2ViewModel_Factory.create(
+              provideMain2ApiProvider, DaggerAppComponent.this.provideUtilsProvider);
     }
 
     @Override

@@ -9,15 +9,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.testrxandretro.R
-import com.example.testrxandretro.model.User
-import com.example.testrxandretro.ui.auth.AuthResource
 import com.example.testrxandretro.ui.main.Resource
-import com.example.testrxandretro.ui.main.profile.ProfileViewModel
 import com.example.testrxandretro.util.VerticalSpacingItemDecoration
 import com.example.testrxandretro.viewmodels.ViewModelProvidersFactory
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_posts.*
-import kotlinx.android.synthetic.main.fragment_profile.*
 import javax.inject.Inject
 
 class PostFragment : DaggerFragment(){

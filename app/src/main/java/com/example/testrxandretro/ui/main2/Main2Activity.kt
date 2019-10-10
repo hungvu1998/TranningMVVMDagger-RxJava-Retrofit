@@ -1,34 +1,29 @@
 package com.example.testrxandretro.ui.main2
 
-import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.net.ConnectivityManager
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
-import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
-import android.widget.ListView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.testrxandretro.R
-import com.example.testrxandretro.model.Breed
+import com.example.testrxandretro.data.model.Breed
+import com.example.testrxandretro.data.model.Dog
+import com.example.testrxandretro.data.model.DogModel
 import com.example.testrxandretro.ui.base.BaseActivity
 import com.example.testrxandretro.ui.main.Resource
-import com.example.testrxandretro.ui.main2.dog.DogRecyclerAdapter
 
 import com.example.testrxandretro.viewmodels.ViewModelProvidersFactory
 
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main2.*
 import javax.inject.Inject
-import androidx.appcompat.view.menu.MenuBuilder
-import androidx.core.content.ContextCompat
-import androidx.core.view.size
 import com.example.testrxandretro.ui.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -69,12 +64,13 @@ class Main2Activity : BaseActivity() , NavigationView.OnNavigationItemSelectedLi
     }
 
     var pagesize:Int=0
-
+    val arrayList = ArrayList<DogModel>()
     private fun subscribeObervers() {
         val menu=nav_view?.menu
         var id:Int=0
         main2ViewModel.observePosts().removeObservers(this)
         main2ViewModel.observePosts().observe(this,Observer{it->
+            arrayList.clear()
             if (it!=null){
                 when(it.status){
                     Resource.Status.LOADING ->{
@@ -84,17 +80,20 @@ class Main2Activity : BaseActivity() , NavigationView.OnNavigationItemSelectedLi
                     Resource.Status.SUCCESS ->{
 
                         Log.d("kiemtra","SUCCESS")
+
                         main2ViewModel.dogs.observe(this, Observer { dogModel->
-                            it.data!!.listDogModel.add(dogModel)
+                            arrayList.add(dogModel)
                             val menuItem=menu?.add(1,id++,1,dogModel.breedName)
 
-                            if(it.data.listDogModel.size == it.data.message!!.size){
-                                adapter.setPosts(it.data.listDogModel)
-                                pagesize=it.data.listDogModel.size
+                            if(arrayList.size == it.data!!.message!!.size){
+                                adapter.setPosts(arrayList)
+                                pagesize=arrayList.size
+
                                 progress_bar.visibility= View.GONE
                             }
                         })
                     }
+
                     Resource.Status.ERROR ->{
                         Log.d("kiemtra","ERROr"+it.message)
                     }
@@ -132,20 +131,13 @@ class Main2Activity : BaseActivity() , NavigationView.OnNavigationItemSelectedLi
         else{
             super.onBackPressed()
         }
-//        when (pager_info.getCurrentItem()) {
-//            0 -> {
-//                finish()
-//                return
-//            }
-//            1 -> {
-//                pager_info.setCurrentItem(0)
-//                return
-//            }
-//        }
 
     }
 
-
-
+    fun isNetworkConnected(context:Context):Boolean{
+        val cm=context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetWork =cm.activeNetworkInfo
+        return activeNetWork !=null && activeNetWork.isConnectedOrConnecting
+    }
 
 }

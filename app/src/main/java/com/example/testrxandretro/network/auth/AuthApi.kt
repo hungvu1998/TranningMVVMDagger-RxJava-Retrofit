@@ -1,6 +1,6 @@
 package com.example.testrxandretro.network.auth
 
-import com.example.testrxandretro.model.User
+import com.example.testrxandretro.data.model.User
 import io.reactivex.Flowable
 
 import retrofit2.http.GET

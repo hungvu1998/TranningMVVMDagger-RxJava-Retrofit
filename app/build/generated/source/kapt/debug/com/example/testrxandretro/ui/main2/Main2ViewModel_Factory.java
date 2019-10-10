@@ -2,30 +2,37 @@
 package com.example.testrxandretro.ui.main2;
 
 import com.example.testrxandretro.network.main2.Main2Api;
+import com.example.testrxandretro.util.Utils;
 import dagger.internal.Factory;
 import javax.inject.Provider;
 
 public final class Main2ViewModel_Factory implements Factory<Main2ViewModel> {
   private final Provider<Main2Api> main2ApiProvider;
 
-  public Main2ViewModel_Factory(Provider<Main2Api> main2ApiProvider) {
+  private final Provider<Utils> utilsProvider;
+
+  public Main2ViewModel_Factory(
+      Provider<Main2Api> main2ApiProvider, Provider<Utils> utilsProvider) {
     this.main2ApiProvider = main2ApiProvider;
+    this.utilsProvider = utilsProvider;
   }
 
   @Override
   public Main2ViewModel get() {
-    return provideInstance(main2ApiProvider);
+    return provideInstance(main2ApiProvider, utilsProvider);
   }
 
-  public static Main2ViewModel provideInstance(Provider<Main2Api> main2ApiProvider) {
-    return new Main2ViewModel(main2ApiProvider.get());
+  public static Main2ViewModel provideInstance(
+      Provider<Main2Api> main2ApiProvider, Provider<Utils> utilsProvider) {
+    return new Main2ViewModel(main2ApiProvider.get(), utilsProvider.get());
   }
 
-  public static Main2ViewModel_Factory create(Provider<Main2Api> main2ApiProvider) {
-    return new Main2ViewModel_Factory(main2ApiProvider);
+  public static Main2ViewModel_Factory create(
+      Provider<Main2Api> main2ApiProvider, Provider<Utils> utilsProvider) {
+    return new Main2ViewModel_Factory(main2ApiProvider, utilsProvider);
   }
 
-  public static Main2ViewModel newMain2ViewModel(Main2Api main2Api) {
-    return new Main2ViewModel(main2Api);
+  public static Main2ViewModel newMain2ViewModel(Main2Api main2Api, Utils utils) {
+    return new Main2ViewModel(main2Api, utils);
   }
 }

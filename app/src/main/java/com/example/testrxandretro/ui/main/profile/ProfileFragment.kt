@@ -1,15 +1,13 @@
 package com.example.testrxandretro.ui.main.profile
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.testrxandretro.R
-import com.example.testrxandretro.model.User
+import com.example.testrxandretro.data.model.User
 import com.example.testrxandretro.ui.auth.AuthResource
 import com.example.testrxandretro.viewmodels.ViewModelProvidersFactory
 import dagger.android.support.DaggerFragment

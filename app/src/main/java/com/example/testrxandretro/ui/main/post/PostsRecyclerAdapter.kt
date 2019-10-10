@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testrxandretro.R
-import com.example.testrxandretro.model.Post
+import com.example.testrxandretro.data.model.Post
 import java.util.ArrayList
 
 
