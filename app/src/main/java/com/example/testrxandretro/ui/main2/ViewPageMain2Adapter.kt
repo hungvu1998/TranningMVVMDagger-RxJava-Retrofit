@@ -1,10 +1,13 @@
 package com.example.testrxandretro.ui.main2
 
 import android.os.Parcelable
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.example.testrxandretro.data.model.Breeds
+import com.example.testrxandretro.data.model.Dog
 
 import com.example.testrxandretro.data.model.DogModel
 import com.example.testrxandretro.ui.main2.dog.DogFragment
@@ -12,28 +15,26 @@ import com.example.testrxandretro.ui.main2.dog.DogFragment
 
 class ViewPageMain2Adapter (fm: FragmentManager) : FragmentStatePagerAdapter(fm)  {
 
-
-
-     var dogList: ArrayList<DogModel> = ArrayList()
+     var arrayListDog: ArrayList<Dog> = ArrayList()
 
 
 
     override fun getItem(position: Int): Fragment {
         var dogFragment=DogFragment()
-        if (dogList.isNotEmpty()){
-            dogFragment.setModel(dogList[position])
-        }
+        Log.d("kiemtrasize",""+arrayListDog[position].listBreeds!!.size)
+        dogFragment.setModel(arrayListDog[position].listBreeds!!)
       return dogFragment
     }
 
     override fun getCount(): Int {
 
-        return dogList.size
+        return arrayListDog.size
 
 
     }
-    fun setPosts(dogList: ArrayList<DogModel>) {
-        this.dogList = dogList
+    fun setPosts(arrayListDog: ArrayList<Dog>) {
+        this.arrayListDog = arrayListDog
+
         notifyDataSetChanged()
     }
 
@@ -46,7 +47,8 @@ class ViewPageMain2Adapter (fm: FragmentManager) : FragmentStatePagerAdapter(fm)
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return if (dogList.isNotEmpty()) dogList[position].breedName else return null
+        return if (arrayListDog.isNotEmpty()) arrayListDog[position].breedName else return null
+
     }
 }
 

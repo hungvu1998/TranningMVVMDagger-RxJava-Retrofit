@@ -3,6 +3,7 @@ package com.example.testrxandretro.di.main2
 import androidx.lifecycle.ViewModel
 import com.example.testrxandretro.di.ViewModelKey
 import com.example.testrxandretro.ui.main2.Main2ViewModel
+import com.example.testrxandretro.ui.main2.detaildog.DetailDogViewModel
 import com.example.testrxandretro.ui.main2.dog.DogViewModel
 
 
@@ -28,4 +29,8 @@ abstract class Main2ViewModelsModule {
 
 
 
+    @Binds
+    @IntoMap
+    @ViewModelKey(DetailDogViewModel::class)
+    abstract fun binDetailDogViewModel(viewModel: DetailDogViewModel): ViewModel
 }

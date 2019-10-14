@@ -8,20 +8,27 @@ import retrofit2.http.Path
 
 interface Main2Api{
 
-
-    @GET("breeds/list/all")
-    abstract fun getAllDog():Observable<RootModel>
-
-
-    @GET("breed/{name}/images")
-    abstract fun getImage(@Path("name") name: String): Observable<DogModel>
-
-
+//
+//    @GET("breeds/list/all")
+//    abstract fun getAllDog():Observable<RootModel>
+//
+//
+//    @GET("breed/{name}/images")
+//    abstract fun getImage(@Path("name") name: String): Observable<DogModel>
+//
+//
+//
+//    @GET("breeds/list/")
+//    abstract fun getAllDog2():Flowable<BreedModel>
+//
+//
+//    @GET("breed/{name}/images")
+//    abstract fun getImage2(@Path("name") name: String): Flowable<BreedModel>
 
     @GET("breeds/list/")
-    abstract fun getAllDog2():Flowable<BreedModel>
+    abstract fun getAllDog2(): Observable<RootBreed>
 
 
-    @GET("breed/{name}/images")
-    abstract fun getImage2(@Path("name") name: String): Flowable<BreedModel>
+    @GET("breed/{name}/images/random/5")
+    abstract fun getImage2(@Path("name") name: String): Observable<RootBreed>
 }

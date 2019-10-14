@@ -12,6 +12,9 @@ import androidx.lifecycle.ViewModel;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.testrxandretro.BaseApplication;
+import com.example.testrxandretro.data.sources.local.BreedDao;
+import com.example.testrxandretro.data.sources.local.BreedsDao;
+import com.example.testrxandretro.data.sources.local.Database;
 import com.example.testrxandretro.di.auth.AuthModule;
 import com.example.testrxandretro.di.auth.AuthModule_ProvideAuthApiFactory;
 import com.example.testrxandretro.di.main.MainFragmentBuildersModule_ConstributePostFragment;
@@ -20,6 +23,7 @@ import com.example.testrxandretro.di.main.MainModule;
 import com.example.testrxandretro.di.main.MainModule_ProvideAdapter$app_debugFactory;
 import com.example.testrxandretro.di.main.MainModule_ProvideMainApiFactory;
 import com.example.testrxandretro.di.main2.Main2FragmentBuildersModule_ConstributeCatFragment;
+import com.example.testrxandretro.di.main2.Main2FragmentBuildersModule_ConstributeDetailDogFragment;
 import com.example.testrxandretro.di.main2.Main2Module;
 import com.example.testrxandretro.di.main2.Main2Module_ProvideMain2ApiFactory;
 import com.example.testrxandretro.ui.auth.AuthActivity;
@@ -44,6 +48,10 @@ import com.example.testrxandretro.ui.main2.Main2Activity;
 import com.example.testrxandretro.ui.main2.Main2Activity_MembersInjector;
 import com.example.testrxandretro.ui.main2.Main2ViewModel;
 import com.example.testrxandretro.ui.main2.Main2ViewModel_Factory;
+import com.example.testrxandretro.ui.main2.detaildog.DetailDogFragment;
+import com.example.testrxandretro.ui.main2.detaildog.DetailDogFragment_MembersInjector;
+import com.example.testrxandretro.ui.main2.detaildog.DetailDogViewModel;
+import com.example.testrxandretro.ui.main2.detaildog.DetailDogViewModel_Factory;
 import com.example.testrxandretro.ui.main2.dog.DogFragment;
 import com.example.testrxandretro.ui.main2.dog.DogFragment_MembersInjector;
 import com.example.testrxandretro.ui.main2.dog.DogViewModel;
@@ -52,6 +60,8 @@ import com.example.testrxandretro.ui.popup.PopUpFullImage;
 import com.example.testrxandretro.util.Utils;
 import com.example.testrxandretro.viewmodels.SessionManager;
 import com.example.testrxandretro.viewmodels.SessionManager_Factory;
+import com.example.testrxandretro.viewmodels.SessionValueBreed;
+import com.example.testrxandretro.viewmodels.SessionValueBreed_Factory;
 import com.example.testrxandretro.viewmodels.ViewModelProvidersFactory;
 import com.google.common.collect.ImmutableMap;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
@@ -100,6 +110,14 @@ public final class DaggerAppComponent implements AppComponent {
   private Provider<SessionManager> sessionManagerProvider;
 
   private Provider<Utils> provideUtilsProvider;
+
+  private Provider<Database> provideDatabase$app_debugProvider;
+
+  private Provider<BreedDao> provideBreedDaoProvider;
+
+  private Provider<BreedsDao> provideBreedsDaoProvider;
+
+  private Provider<SessionValueBreed> sessionValueBreedProvider;
 
   private DaggerAppComponent(Builder builder) {
     initialize(builder);
@@ -236,6 +254,19 @@ public final class DaggerAppComponent implements AppComponent {
     this.provideUtilsProvider =
         DoubleCheck.provider(
             AppModule_ProvideUtilsFactory.create(builder.appModule, applicationProvider));
+    this.provideDatabase$app_debugProvider =
+        DoubleCheck.provider(
+            AppModule_ProvideDatabase$app_debugFactory.create(
+                builder.appModule, applicationProvider));
+    this.provideBreedDaoProvider =
+        DoubleCheck.provider(
+            AppModule_ProvideBreedDaoFactory.create(
+                builder.appModule, provideDatabase$app_debugProvider));
+    this.provideBreedsDaoProvider =
+        DoubleCheck.provider(
+            AppModule_ProvideBreedsDaoFactory.create(
+                builder.appModule, provideDatabase$app_debugProvider));
+    this.sessionValueBreedProvider = DoubleCheck.provider(SessionValueBreed_Factory.create());
   }
 
   @Override
@@ -640,9 +671,18 @@ public final class DaggerAppComponent implements AppComponent {
             Main2FragmentBuildersModule_ConstributeCatFragment.DogFragmentSubcomponent.Builder>
         dogFragmentSubcomponentBuilderProvider;
 
+    private Provider<
+            Main2FragmentBuildersModule_ConstributeDetailDogFragment.DetailDogFragmentSubcomponent
+                .Builder>
+        detailDogFragmentSubcomponentBuilderProvider;
+
     private Main2Module_ProvideMain2ApiFactory provideMain2ApiProvider;
 
     private Main2ViewModel_Factory main2ViewModelProvider;
+
+    private DogViewModel_Factory dogViewModelProvider;
+
+    private DetailDogViewModel_Factory detailDogViewModelProvider;
 
     private Main2ActivitySubcomponentImpl(Main2ActivitySubcomponentBuilder builder) {
       initialize(builder);
@@ -655,7 +695,11 @@ public final class DaggerAppComponent implements AppComponent {
       return ImmutableMap
           .<Class<? extends androidx.fragment.app.Fragment>,
               Provider<AndroidInjector.Factory<? extends androidx.fragment.app.Fragment>>>
-              of(DogFragment.class, (Provider) dogFragmentSubcomponentBuilderProvider);
+              of(
+                  DogFragment.class,
+                  (Provider) dogFragmentSubcomponentBuilderProvider,
+                  DetailDogFragment.class,
+                  (Provider) detailDogFragmentSubcomponentBuilderProvider);
     }
 
     private DispatchingAndroidInjector<androidx.fragment.app.Fragment>
@@ -670,7 +714,9 @@ public final class DaggerAppComponent implements AppComponent {
           Main2ViewModel.class,
           (Provider) main2ViewModelProvider,
           DogViewModel.class,
-          (Provider) DogViewModel_Factory.create());
+          (Provider) dogViewModelProvider,
+          DetailDogViewModel.class,
+          (Provider) detailDogViewModelProvider);
     }
 
     private ViewModelProvidersFactory getViewModelProvidersFactory() {
@@ -690,13 +736,31 @@ public final class DaggerAppComponent implements AppComponent {
               return new DogFragmentSubcomponentBuilder();
             }
           };
+      this.detailDogFragmentSubcomponentBuilderProvider =
+          new Provider<
+              Main2FragmentBuildersModule_ConstributeDetailDogFragment.DetailDogFragmentSubcomponent
+                  .Builder>() {
+            @Override
+            public Main2FragmentBuildersModule_ConstributeDetailDogFragment
+                    .DetailDogFragmentSubcomponent.Builder
+                get() {
+              return new DetailDogFragmentSubcomponentBuilder();
+            }
+          };
       this.provideMain2ApiProvider =
           Main2Module_ProvideMain2ApiFactory.create(
               builder.main2Module,
               DaggerAppComponent.this.provideRetrofitInstance$app_debugProvider);
       this.main2ViewModelProvider =
           Main2ViewModel_Factory.create(
-              provideMain2ApiProvider, DaggerAppComponent.this.provideUtilsProvider);
+              provideMain2ApiProvider,
+              DaggerAppComponent.this.provideUtilsProvider,
+              DaggerAppComponent.this.provideBreedDaoProvider,
+              DaggerAppComponent.this.provideBreedsDaoProvider);
+      this.dogViewModelProvider =
+          DogViewModel_Factory.create(DaggerAppComponent.this.sessionValueBreedProvider);
+      this.detailDogViewModelProvider =
+          DetailDogViewModel_Factory.create(DaggerAppComponent.this.sessionValueBreedProvider);
     }
 
     @Override
@@ -748,6 +812,47 @@ public final class DaggerAppComponent implements AppComponent {
         DaggerFragment_MembersInjector.injectChildFragmentInjector(
             instance, Main2ActivitySubcomponentImpl.this.getDispatchingAndroidInjectorOfFragment());
         DogFragment_MembersInjector.injectProviderFactory(
+            instance, Main2ActivitySubcomponentImpl.this.getViewModelProvidersFactory());
+        return instance;
+      }
+    }
+
+    private final class DetailDogFragmentSubcomponentBuilder
+        extends Main2FragmentBuildersModule_ConstributeDetailDogFragment
+            .DetailDogFragmentSubcomponent.Builder {
+      private DetailDogFragment seedInstance;
+
+      @Override
+      public Main2FragmentBuildersModule_ConstributeDetailDogFragment.DetailDogFragmentSubcomponent
+          build() {
+        if (seedInstance == null) {
+          throw new IllegalStateException(
+              DetailDogFragment.class.getCanonicalName() + " must be set");
+        }
+        return new DetailDogFragmentSubcomponentImpl(this);
+      }
+
+      @Override
+      public void seedInstance(DetailDogFragment arg0) {
+        this.seedInstance = Preconditions.checkNotNull(arg0);
+      }
+    }
+
+    private final class DetailDogFragmentSubcomponentImpl
+        implements Main2FragmentBuildersModule_ConstributeDetailDogFragment
+            .DetailDogFragmentSubcomponent {
+      private DetailDogFragmentSubcomponentImpl(DetailDogFragmentSubcomponentBuilder builder) {}
+
+      @Override
+      public void inject(DetailDogFragment arg0) {
+        injectDetailDogFragment(arg0);
+      }
+
+      @CanIgnoreReturnValue
+      private DetailDogFragment injectDetailDogFragment(DetailDogFragment instance) {
+        DaggerFragment_MembersInjector.injectChildFragmentInjector(
+            instance, Main2ActivitySubcomponentImpl.this.getDispatchingAndroidInjectorOfFragment());
+        DetailDogFragment_MembersInjector.injectProviderFactory(
             instance, Main2ActivitySubcomponentImpl.this.getViewModelProvidersFactory());
         return instance;
       }

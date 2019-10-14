@@ -2,46 +2,21 @@ package com.example.testrxandretro.data.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import java.io.Serializable
 
-//class BreedModel {
-//    @SerializedName("message")
-//    @Expose
-//    var message: List<String>?=null
-//
-//
-//
-//    @SerializedName("status")
-//    @Expose
-//    var status: String? = null
-//
-//    var listDogModel:ArrayList<DogModel> =  ArrayList()
-//    constructor()
-//    constructor(message: List<String>,status: String, listDogModel:ArrayList<DogModel>) {
-//       this.message=message
-//        this.status=status
-//        this.listDogModel=listDogModel
-//    }
-//
-//}
-
-
-@Entity(
-    tableName = "tblBreed"
-)
-data class BreedModel(
-//    @PrimaryKey(autoGenerate=true)
-//    @ColumnInfo(name = "id")
-//    val id: Int,
-
-    @Json(name = "message")
-    @ColumnInfo(name = "message")
-    val message: List<String>?,
-
-    @Json(name = "status")
-    @ColumnInfo(name = "status")
-    val status: String
+@Entity
+data class BreedModel (
+    @PrimaryKey
+    @ColumnInfo(name = "id")
+    val id:Int ,
+    @ColumnInfo(name = "breedName")
+    var breedName:String,
+    @ColumnInfo(name = "img")
+    var img:String
+//    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+//    var img: ByteArray? = null
 
 
 ): Serializable

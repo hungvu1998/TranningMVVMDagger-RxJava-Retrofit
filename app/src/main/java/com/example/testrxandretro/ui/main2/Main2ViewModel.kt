@@ -4,110 +4,126 @@ import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.*
 import com.example.testrxandretro.data.model.BreedModel
-import com.example.testrxandretro.data.model.DogModel
-import com.example.testrxandretro.data.sources.local.Dao
+import com.example.testrxandretro.data.model.Breeds
+import com.example.testrxandretro.data.sources.local.BreedDao
+import com.example.testrxandretro.data.sources.local.BreedsDao
 import com.example.testrxandretro.network.main2.Main2Api
 import com.example.testrxandretro.ui.main.Resource
 import com.example.testrxandretro.util.Utils
+import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.functions.Function
 import io.reactivex.schedulers.Schedulers
+
 
 import javax.inject.Inject
 
-class Main2ViewModel  @Inject constructor(val main2Api: Main2Api, val utils: Utils) : ViewModel() {
 
 
-     var dogs: MutableLiveData<DogModel> = MutableLiveData()
-    private var posts: MediatorLiveData<Resource<BreedModel>>? = null
 
-    fun observePosts(): LiveData<Resource<BreedModel>> {
+class Main2ViewModel  @Inject constructor(val main2Api: Main2Api, val utils: Utils,val breedDao: BreedDao,val breedsDao: BreedsDao) : ViewModel() {
+
+
+     var dogs: MutableLiveData<BreedModel> = MutableLiveData()
+    var breeds: MutableLiveData<ArrayList<Breeds>> = MutableLiveData()
+    var dogArrayList: MutableLiveData<ArrayList<BreedModel>> = MutableLiveData()
+    var breed2: MutableLiveData<ArrayList<Breeds>> = MutableLiveData()
+    var nameBreed: MutableLiveData<String> = MutableLiveData()
+    var boolean: MutableLiveData<Boolean> = MutableLiveData()
+    fun observePosts() {
         val hasConnection = utils.isConnectedToInternet()
-        //Nếu có mạng
-        if (posts == null) {
-            posts = MediatorLiveData<Resource<BreedModel>>()
-            posts!!.setValue(Resource.loading(null as BreedModel?))
-
-            var source: LiveData<Resource<BreedModel>> ?=null
-            if(hasConnection) {
-                source = getDogbyApi()
-            }
-            else{
-                source=getDogbyDB()
-            }
-            posts!!.addSource(source) { listResource ->
-                posts!!.value=listResource
-                posts!!.removeSource(source)
-            }
+        if(hasConnection){
+            Log.d("kiemtraMang","co mang")
+            if(breedDao.loadAllUsers().isNotEmpty())
+            breedDao.deleteData()
+            getObjectBreedRoot()
         }
-        return posts as MediatorLiveData<Resource<BreedModel>>
-    }
+        else{
+            Log.d("kiemtraMang","ko co mang")
+            getDogbyDB()
 
-    fun getDogbyApi():LiveData<Resource<BreedModel>>{
-        Log.d("kiemtra","api")
-        return LiveDataReactiveStreams.fromPublisher(
-            main2Api.getAllDog2()
-                .onErrorReturn { throwable ->
-                    Log.d("kiemtra", "apply: ", throwable)
-                    val breedModel = BreedModel(null,"Fail")
-                    breedModel
-                }
-                .map(Function<BreedModel, Resource<BreedModel>> { posts ->
-                    if (posts.status == "Fail") {
-                        return@Function Resource.error("Something went wrong", null)
-                    }
-                    for(item in posts.message!!){
-                        fetchAffenpinscher(item)
-                    }
-                    Resource.success(posts)
-                })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-        )
+
+
+        }
+    }
+    val arrayBreeds : ArrayList<Breeds> = ArrayList()
+    val arrayDog : ArrayList<BreedModel> = ArrayList()
+    fun getDogbyDB(){
+        for(item in breedsDao.loadAllBreeds()){
+            arrayBreeds.add(item)
+        }
+
+        for (item in breedDao.loadAllUsers()){
+            arrayDog.add(item)
+        }
+        dogArrayList.value=arrayDog
+        breed2.value=arrayBreeds
 
     }
-    fun getDogbyDB():LiveData<Resource<BreedModel>>{
-        Log.d("kiemtra","db")
-        val dao: Dao?=null
-        return LiveDataReactiveStreams.fromPublisher(
-            dao!!.queryRootModel()
-                .toFlowable()
-                .onErrorReturn { throwable ->
-                    Log.d("kiemtra", "apply: ", throwable)
-                    val breedModel = BreedModel(null,"Fail")
-                    breedModel
-                }
-                .map(Function<BreedModel, Resource<BreedModel>> { posts ->
-                    if (posts.status == "Fail") {
-                        return@Function Resource.error("Something went wrong", null)
-                    }
-                    for(item in posts.message!!){
-                        fetchAffenpinscher(item)
-                    }
-
-
-                    Resource.success(posts)
-                })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-        )
-    }
-
-
 
     @SuppressLint("CheckResult")
-    fun fetchAffenpinscher(name: String){
-        main2Api!!.getImage(name)
-            .observeOn(AndroidSchedulers.mainThread())
+    fun getObjectBreedRoot(){
+        main2Api.getAllDog2()
             .subscribeOn(Schedulers.io())
-            .subscribe {
-                it.breedName=name
-                dogs.value=it
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                getListImglBreed(it.message!!)
+                var x=0
+
+                if (breedsDao.loadAllBreeds().isNotEmpty()){
+                    breedsDao.deleteData()
+                }
+                for(item in it.message!!){
+                    arrayBreeds.add(Breeds(x,item))
+                    x++
+                    breedsDao.insertBreed(Breeds(x,item))
+                }
+                breeds.value=arrayBreeds
+
+
+            },{
+                Log.d("kiemtra2",""+it.message)
+            })
+    }
+
+    @SuppressLint("CheckResult")
+    fun getListImglBreed(listName : List<String>){
+        Observable.fromIterable(listName)
+            .map {
+                main2Api.getImage2(it)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({rootBreed ->
+                        getDetailBreed(it!!,rootBreed.message!!)
+
+                    },{
+                        Log.d("kiemtra2",""+it.message)
+                    })
+            }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe{
+
             }
 
+    }
+    var i=0
+    @SuppressLint("CheckResult")
+    fun getDetailBreed(name:String, listImg : List<String>){
+
+        Observable.fromIterable(listImg)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe ({
+                val breedModel = BreedModel( i++, name, it)
+                dogs.value = breedModel
+                 breedDao.insertModel(breedModel)
+            },{
+
+            },{
+                nameBreed.value=name
+            })
 
 
     }
-
 
 }

@@ -13,9 +13,7 @@ import androidx.core.view.GravityCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.testrxandretro.R
-import com.example.testrxandretro.data.model.Breed
-import com.example.testrxandretro.data.model.Dog
-import com.example.testrxandretro.data.model.DogModel
+import com.example.testrxandretro.data.model.*
 import com.example.testrxandretro.ui.base.BaseActivity
 import com.example.testrxandretro.ui.main.Resource
 
@@ -25,11 +23,14 @@ import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main2.*
 import javax.inject.Inject
 import com.example.testrxandretro.ui.login.LoginActivity
+import com.example.testrxandretro.ui.main2.dog.RecyclerClickItem
 import com.google.firebase.auth.FirebaseAuth
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 
 class Main2Activity : BaseActivity() , NavigationView.OnNavigationItemSelectedListener {
-
 
 
     @Inject
@@ -53,6 +54,7 @@ class Main2Activity : BaseActivity() , NavigationView.OnNavigationItemSelectedLi
         toolbar.title="Home"
 
         main2ViewModel= ViewModelProviders.of(this,providerFactory).get(Main2ViewModel::class.java)
+        main2ViewModel.observePosts()
 
         initViewPage()
         subscribeObervers()
@@ -64,41 +66,66 @@ class Main2Activity : BaseActivity() , NavigationView.OnNavigationItemSelectedLi
     }
 
     var pagesize:Int=0
-    val arrayList = ArrayList<DogModel>()
+    val arrayList = ArrayList<BreedModel>()
     private fun subscribeObervers() {
         val menu=nav_view?.menu
         var id:Int=0
-        main2ViewModel.observePosts().removeObservers(this)
-        main2ViewModel.observePosts().observe(this,Observer{it->
+        var arrayListDog: ArrayList<Dog> = ArrayList()
+        main2ViewModel.breeds.observe(this, Observer {it->
+            arrayListDog.clear()
             arrayList.clear()
-            if (it!=null){
-                when(it.status){
-                    Resource.Status.LOADING ->{
-                        progress_bar.visibility= View.VISIBLE
-                        Log.d("kiemtra","loading")
-                    }
-                    Resource.Status.SUCCESS ->{
+            pagesize=it.size
+            for(item in it){
+                val menuItem=menu?.add(1,id++,1,item.breedName)
+                var dog = Dog()
+                dog.breedName = item.breedName
+                arrayListDog.add(dog)
 
-                        Log.d("kiemtra","SUCCESS")
+            }
 
-                        main2ViewModel.dogs.observe(this, Observer { dogModel->
-                            arrayList.add(dogModel)
-                            val menuItem=menu?.add(1,id++,1,dogModel.breedName)
+            main2ViewModel.dogs.observe(this, Observer {breedModel->
+                for(i in 0 until arrayListDog.size){
+                    if(arrayListDog[i].breedName.equals(breedModel.breedName)){
 
-                            if(arrayList.size == it.data!!.message!!.size){
-                                adapter.setPosts(arrayList)
-                                pagesize=arrayList.size
-
-                                progress_bar.visibility= View.GONE
-                            }
-                        })
-                    }
-
-                    Resource.Status.ERROR ->{
-                        Log.d("kiemtra","ERROr"+it.message)
+                        arrayListDog[i].listBreeds!!.add(breedModel)
                     }
                 }
+
+            })
+            main2ViewModel.nameBreed.observe(this, Observer {name->
+
+                if (name == arrayListDog[it.size -1].breedName){
+                    adapter.setPosts(arrayListDog)
+                    progress_bar.visibility=View.GONE
+
+
+                }
+            })
+        })
+        main2ViewModel.breed2.observe(this, Observer {it->
+            arrayListDog.clear()
+            pagesize=it.size
+            var idLast=0
+            for(item in it){
+                val menuItem=menu?.add(1,id++,1,item.breedName)
+                var dog = Dog()
+                dog.breedName = item.breedName
+                arrayListDog.add(dog)
             }
+            main2ViewModel.dogArrayList.observe(this, Observer {it->
+                Log.d("kiemtraaaaaaa",""+it.size)
+                for(i in 0 until arrayListDog.size){
+                    for(item in it){
+                        if(arrayListDog[i].breedName.equals(item.breedName)){
+                            arrayListDog[i].listBreeds!!.add(item)
+                        }
+                    }
+
+                }
+
+                adapter.setPosts(arrayListDog)
+                progress_bar.visibility=View.GONE
+            })
 
         })
     }
@@ -110,6 +137,7 @@ class Main2Activity : BaseActivity() , NavigationView.OnNavigationItemSelectedLi
 
 
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
+        Log.d("kiemtra",""+p0.itemId)
         if(p0.itemId < pagesize)
         pager_info?.currentItem=p0.itemId
 
@@ -134,10 +162,6 @@ class Main2Activity : BaseActivity() , NavigationView.OnNavigationItemSelectedLi
 
     }
 
-    fun isNetworkConnected(context:Context):Boolean{
-        val cm=context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val activeNetWork =cm.activeNetworkInfo
-        return activeNetWork !=null && activeNetWork.isConnectedOrConnecting
-    }
+
 
 }

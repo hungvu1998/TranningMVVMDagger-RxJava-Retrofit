@@ -7,9 +7,22 @@ import com.example.testrxandretro.viewmodels.SessionValueBreed
 
 import javax.inject.Inject
 
-class DogViewModel @Inject constructor() : ViewModel() {
-    var sessionValueBreed:SessionValueBreed?=null
-    var liveData:MutableLiveData<String> = MutableLiveData()
+class DogViewModel  : ViewModel {
+    var sessionValueBreed: SessionValueBreed?=null
+    @Inject
+    constructor(sessionValueBreed:SessionValueBreed){
+        this.sessionValueBreed=sessionValueBreed
+    }
+
+    var liveData: MutableLiveData<String> = MutableLiveData()
+    fun setValueSession(img: String){
+        liveData.value=img
+        sessionValueBreed!!.setValue(liveData!!)
+    }
+    fun observeValueBreed(): LiveData<String> {
+        return sessionValueBreed!!.getValue()
+
+    }
 
 
 }

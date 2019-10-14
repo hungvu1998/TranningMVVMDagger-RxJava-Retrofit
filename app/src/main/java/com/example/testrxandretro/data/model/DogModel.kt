@@ -1,5 +1,6 @@
 package com.example.testrxandretro.data.model
 
+import android.graphics.Bitmap
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -33,9 +34,9 @@ import java.io.Serializable
     tableName = "tblDetailDog"
 )
 data class DogModel(
-    @PrimaryKey
-    @ColumnInfo(name = "breedName")
-    var breedName: String,
+//    @PrimaryKey
+//    @ColumnInfo(name = "breedName")
+//    var breedName: String,
 
     @Json(name = "message")
     @ColumnInfo(name = "message")
@@ -44,4 +45,7 @@ data class DogModel(
     @Json(name = "status")
     @ColumnInfo(name = "status")
     val status: String
+//
+//    @ColumnInfo(name = "bitmap")
+//    val bitmap: ArrayList<Bitmap> = ArrayList()
 ): Serializable

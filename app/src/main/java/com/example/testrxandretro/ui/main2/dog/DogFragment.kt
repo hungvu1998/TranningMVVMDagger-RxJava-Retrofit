@@ -2,6 +2,7 @@ package com.example.testrxandretro.ui.main2.dog
 
 import android.Manifest
 import android.app.Activity.RESULT_OK
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,55 +23,60 @@ import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import com.example.testrxandretro.data.model.BreedModel
+import com.example.testrxandretro.ui.main2.detaildog.DetailDogFragment
 import com.example.testrxandretro.ui.popup.PopUpFullImage
 
 
 class DogFragment : DaggerFragment(),RecyclerClickItem{
     override fun doThis(img: String) {
+//        dogViewModel.setValueSession(img)
+//        replaceFragment()
         val intent=Intent(context!!,PopUpFullImage::class.java)
         intent.putExtra("img",img)
         startActivity(intent)
-
     }
-
 
     @Inject
     lateinit var providerFactory: ViewModelProvidersFactory
-
-    lateinit var dogModel: DogModel
-
-    fun setModel(dogModel: DogModel){
-        this.dogModel=dogModel
-    }
-
-    lateinit var adapter: DogRecyclerAdapter
-
-    lateinit var dogViewModel: DogViewModel
     val PICK_IMAGE = 1
     val REQUEST_PERMISSION_STORAGE=5
+     var listBreed: ArrayList<BreedModel> = ArrayList()
+     lateinit var adapter: DogRecyclerAdapter
+    fun setModel(listBreed:  ArrayList<BreedModel>){
+        this.listBreed = listBreed
+    }
+    fun replaceFragment(){
+        activity!!.supportFragmentManager.beginTransaction()
+            .add(R.id.container_dog, DetailDogFragment()).addToBackStack(null)
+            .commit()
+    }
+
+    lateinit var dogViewModel: DogViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         dogViewModel= ViewModelProviders.of(this,providerFactory).get(DogViewModel::class.java)
 
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        Log.d("kiemtra","onCreateView")
         return inflater.inflate(R.layout.fragment_dog, container, false)
 
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         initRecyclerView()
-        subscribeObervers()
-
         btnAddLink!!.setOnClickListener {
             permission()
 
         }
-
+        subscribeObervers()
     }
-
     fun permission(){
         val checkPermissionExternalStorage:Int= ContextCompat.checkSelfPermission(context!!,Manifest.permission.WRITE_EXTERNAL_STORAGE)
         if(checkPermissionExternalStorage!= PackageManager.PERMISSION_GRANTED ){
@@ -100,30 +106,22 @@ class DogFragment : DaggerFragment(),RecyclerClickItem{
             }
         }
     }
-    private fun subscribeObervers() {
-
-
-    }
     private fun initRecyclerView() {
         adapter= DogRecyclerAdapter(this)
+        adapter.setBreedList(listBreed)
         val layoutManager=GridLayoutManager(activity,2)
         recyclerDogs.layoutManager = layoutManager
-        // val itemDecoration = VerticalSpacingItemDecoration(15)
-        //recyclerDogs.addItemDecoration(itemDecoration)
-        adapter.setPosts(dogModel)
-        Log.d("kiemtra",""+dogModel.breedName)
-        Log.d("kiemtra",""+dogModel.message!!.size)
         recyclerDogs.adapter = adapter
     }
+    private fun subscribeObervers() {
 
-//    fun replaceFragment(){
-//        activity!!.supportFragmentManager.beginTransaction()
-//            .replace(R.id.container_dog, DetailDogFragment()).addToBackStack(null)
-//            .commit()
-//    }
-
-
-
+//        dogViewModel.observeValueBreed().observe(this, Observer{ it->
+//            if(it!=null){
+//                replaceFragment()
+//            }
+//
+//        })
+    }
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && null != data) {
@@ -131,16 +129,68 @@ class DogFragment : DaggerFragment(),RecyclerClickItem{
                 val count = data.clipData!!.itemCount
                 for (i in 0 until count) {
                     val imageUri = data.clipData!!.getItemAt(i).uri
-                    dogModel.message!!.add(imageUri.toString())
+                    listBreed.add(BreedModel(0,listBreed[0].breedName,imageUri.toString()))
+
                 }
             }
             else if (data.data != null) {
-                dogModel.message!!.add(data.data.toString())
+                listBreed.add(BreedModel(0,listBreed[0].breedName,data.data.toString()))
+
             }
 
-            adapter.setPosts(dogModel)
+            adapter.setBreedList(listBreed)
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("kiemtra","onDestroy")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.d("kiemtra","onDestroyView")
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Log.d("kiemtra","onDetach")
+
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        Log.d("kiemtra","onAttach")
+    }
+
+    override fun onAttachFragment(childFragment: Fragment) {
+        super.onAttachFragment(childFragment)
+        Log.d("kiemtra","onAttachFragment")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("kiemtra","onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("kiemtra","onStop")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("kiemtra","onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("kiemtra","onResume")
+    }
+
+
+
+
 
 
 }
