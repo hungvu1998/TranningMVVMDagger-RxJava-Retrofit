@@ -14,9 +14,10 @@ data class BreedModel (
     @ColumnInfo(name = "breedName")
     var breedName:String,
     @ColumnInfo(name = "img")
-    var img:String
-//    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
-//    var img: ByteArray? = null
+    var img:String,
+
+    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+    var imgbyte: ByteArray? = null
 
 
 ): Serializable

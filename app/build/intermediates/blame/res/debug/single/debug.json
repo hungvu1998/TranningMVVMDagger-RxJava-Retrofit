@@ -24,12 +24,12 @@
         "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\9e9a8cf37b44086576a4e6a0d0555d9b\\res\\drawable-hdpi-v4\\quantum_ic_refresh_white_24.png"
     },
     {
-        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-watch-v20_common_google_signin_btn_text_light_normal.xml.flat",
-        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\8146c640ed1e0bb69da3b5c3b9780564\\res\\drawable-watch-v20\\common_google_signin_btn_text_light_normal.xml"
-    },
-    {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logo.png.flat",
         "source": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\src\\main\\res\\drawable\\logo.png"
+    },
+    {
+        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-watch-v20_common_google_signin_btn_text_light_normal.xml.flat",
+        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\8146c640ed1e0bb69da3b5c3b9780564\\res\\drawable-watch-v20\\common_google_signin_btn_text_light_normal.xml"
     },
     {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cast_ic_mini_controller_rewind30.xml.flat",
@@ -56,12 +56,12 @@
         "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\73a358994081375973c126d117cb5b5d\\res\\drawable-hdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_ic_mr_button_connecting_18_dark.png.flat",
-        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\8c3082df85ee3e8b2ea4e106eef98544\\res\\drawable-xhdpi-v4\\ic_mr_button_connecting_18_dark.png"
-    },
-    {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\73a358994081375973c126d117cb5b5d\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_ic_mr_button_connecting_18_dark.png.flat",
+        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\8c3082df85ee3e8b2ea4e106eef98544\\res\\drawable-xhdpi-v4\\ic_mr_button_connecting_18_dark.png"
     },
     {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
@@ -100,12 +100,12 @@
         "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\8c3082df85ee3e8b2ea4e106eef98544\\res\\drawable-xxxhdpi-v4\\ic_group_collapse_05.png"
     },
     {
-        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
-        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\73a358994081375973c126d117cb5b5d\\res\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
-    },
-    {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_ic_mr_button_disconnected_dark.png.flat",
         "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\8c3082df85ee3e8b2ea4e106eef98544\\res\\drawable-xxhdpi-v4\\ic_mr_button_disconnected_dark.png"
+    },
+    {
+        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
+        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\73a358994081375973c126d117cb5b5d\\res\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
     },
     {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_quantum_ic_skip_previous_white_36.png.flat",
@@ -132,28 +132,28 @@
         "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\73a358994081375973c126d117cb5b5d\\res\\drawable\\abc_dialog_material_background.xml"
     },
     {
-        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_cast_ic_stop_circle_filled_grey600.png.flat",
-        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\9e9a8cf37b44086576a4e6a0d0555d9b\\res\\drawable-xhdpi-v4\\cast_ic_stop_circle_filled_grey600.png"
-    },
-    {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_perm_identity_black_24dp.png.flat",
         "source": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_perm_identity_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_cast_ic_stop_circle_filled_grey600.png.flat",
+        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\9e9a8cf37b44086576a4e6a0d0555d9b\\res\\drawable-xhdpi-v4\\cast_ic_stop_circle_filled_grey600.png"
     },
     {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_design_ic_visibility_off.png.flat",
         "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\eb4cd0a0753da5ef53b1ce4ddaf0d6c4\\res\\drawable-xxxhdpi-v4\\design_ic_visibility_off.png"
     },
     {
-        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_edit_text_material.xml.flat",
-        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\73a358994081375973c126d117cb5b5d\\res\\drawable\\abc_edit_text_material.xml"
+        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_quantum_ic_stop_grey600_48.png.flat",
+        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\9e9a8cf37b44086576a4e6a0d0555d9b\\res\\drawable-xxxhdpi-v4\\quantum_ic_stop_grey600_48.png"
     },
     {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_ic_mr_button_connecting_30_dark.png.flat",
         "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\8c3082df85ee3e8b2ea4e106eef98544\\res\\drawable-xhdpi-v4\\ic_mr_button_connecting_30_dark.png"
     },
     {
-        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_quantum_ic_stop_grey600_48.png.flat",
-        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\9e9a8cf37b44086576a4e6a0d0555d9b\\res\\drawable-xxxhdpi-v4\\quantum_ic_stop_grey600_48.png"
+        "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_edit_text_material.xml.flat",
+        "source": "C:\\Users\\HungVV\\.gradle\\caches\\transforms-2\\files-2.1\\73a358994081375973c126d117cb5b5d\\res\\drawable\\abc_edit_text_material.xml"
     },
     {
         "merged": "C:\\Users\\HungVV\\Desktop\\TranningMVVMDagger-RxJava-Retrofit-master\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_slide_in_top.xml.flat",

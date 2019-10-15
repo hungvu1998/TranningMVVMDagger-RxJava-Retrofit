@@ -2,6 +2,7 @@
 package com.example.testrxandretro.ui.main2.dog;
 
 import androidx.fragment.app.Fragment;
+import com.example.testrxandretro.util.Utils;
 import com.example.testrxandretro.viewmodels.ViewModelProvidersFactory;
 import dagger.MembersInjector;
 import dagger.android.DispatchingAndroidInjector;
@@ -11,26 +12,37 @@ import javax.inject.Provider;
 public final class DogFragment_MembersInjector implements MembersInjector<DogFragment> {
   private final Provider<DispatchingAndroidInjector<Fragment>> childFragmentInjectorProvider;
 
+  private final Provider<Utils> utilsProvider;
+
   private final Provider<ViewModelProvidersFactory> providerFactoryProvider;
 
   public DogFragment_MembersInjector(
       Provider<DispatchingAndroidInjector<Fragment>> childFragmentInjectorProvider,
+      Provider<Utils> utilsProvider,
       Provider<ViewModelProvidersFactory> providerFactoryProvider) {
     this.childFragmentInjectorProvider = childFragmentInjectorProvider;
+    this.utilsProvider = utilsProvider;
     this.providerFactoryProvider = providerFactoryProvider;
   }
 
   public static MembersInjector<DogFragment> create(
       Provider<DispatchingAndroidInjector<Fragment>> childFragmentInjectorProvider,
+      Provider<Utils> utilsProvider,
       Provider<ViewModelProvidersFactory> providerFactoryProvider) {
-    return new DogFragment_MembersInjector(childFragmentInjectorProvider, providerFactoryProvider);
+    return new DogFragment_MembersInjector(
+        childFragmentInjectorProvider, utilsProvider, providerFactoryProvider);
   }
 
   @Override
   public void injectMembers(DogFragment instance) {
     DaggerFragment_MembersInjector.injectChildFragmentInjector(
         instance, childFragmentInjectorProvider.get());
+    injectUtils(instance, utilsProvider.get());
     injectProviderFactory(instance, providerFactoryProvider.get());
+  }
+
+  public static void injectUtils(DogFragment instance, Utils utils) {
+    instance.utils = utils;
   }
 
   public static void injectProviderFactory(

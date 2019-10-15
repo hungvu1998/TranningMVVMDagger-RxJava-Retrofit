@@ -1,9 +1,9 @@
 package com.example.testrxandretro.ui.main2.dog
 
 import android.annotation.SuppressLint
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
+import android.graphics.*
 import android.os.AsyncTask
+import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -14,12 +14,26 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testrxandretro.R
 import com.example.testrxandretro.data.model.BreedModel
+import com.example.testrxandretro.util.Utils
 import com.squareup.picasso.Picasso
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+import java.io.ByteArrayOutputStream
 import java.net.HttpURLConnection
 import java.net.URL
+import java.nio.ByteBuffer
 
 
-class DogRecyclerAdapter(var recyclerClickItem: RecyclerClickItem) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+
+
+
+
+
+
+
+class DogRecyclerAdapter(var recyclerClickItem: RecyclerClickItem,var utils: Utils) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var arrayBreedModel: ArrayList<BreedModel> = ArrayList()
 
@@ -31,7 +45,7 @@ class DogRecyclerAdapter(var recyclerClickItem: RecyclerClickItem) : RecyclerVie
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as PostViewHolder).bind(arrayBreedModel!![position],recyclerClickItem)
+        (holder as PostViewHolder).bind(arrayBreedModel!![position],recyclerClickItem,utils)
 
     }
 
@@ -51,28 +65,42 @@ class DogRecyclerAdapter(var recyclerClickItem: RecyclerClickItem) : RecyclerVie
         private var imageItemBreed : ImageView =itemView.findViewById(R.id.imageItemBreed)
         private var cardview: CardView =itemView.findViewById(R.id.cardview)
 
-        fun bind(breedModel: BreedModel,recyclerClickItem : RecyclerClickItem) {
-
+        @SuppressLint("CheckResult")
+        fun bind(breedModel: BreedModel, recyclerClickItem : RecyclerClickItem, utils: Utils) {
             textItemBreedName.text = breedModel.breedName
+            val hasConnection = utils.isConnectedToInternet()
 
+                if(hasConnection){
+                    Observable.fromCallable<Any>{
+                        download_img(breedModel.img)
+                    }
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe{bitmap->
+                            if(bitmap!=null) {
+                                val bitmap_=bitmap as Bitmap
+                                val size = bitmap_.getRowBytes() * bitmap_.getHeight()
+                                val byteBuffer = ByteBuffer.allocate(size)
+                                bitmap_.copyPixelsToBuffer(byteBuffer)
+                                breedModel.imgbyte=byteBuffer.array()
+                                imageItemBreed.setImageBitmap(bitmap)
+                            }
+                        }
+                }
 
-
-//                    Observable.fromCallable<Any>{
-//                        download_img(breedModel.img)
-//                    }
-//                        .subscribeOn(Schedulers.io())
-//                        .observeOn(AndroidSchedulers.mainThread())
-//                        .subscribe{
-//                            if(it!=null)
-//                            imageItemBreed.setImageBitmap(it as Bitmap)
-//                        }
-                Picasso.get().load(breedModel.img).into(imageItemBreed)
 
 
             cardview.setOnClickListener {
                 recyclerClickItem.doThis(breedModel.img)
             }
 
+        }
+        fun convertByteToBitmap(imgbyte: ByteArray):Bitmap?{
+            val yuvimage = YuvImage(imgbyte, ImageFormat.NV21, 100, 100, null)
+            val baos  = ByteArrayOutputStream()
+            yuvimage.compressToJpeg( Rect(0, 0, 100, 100), 80, baos)
+            val jdata = baos.toByteArray()
+             return BitmapFactory.decodeByteArray(jdata, 0,jdata.size)
         }
         fun download_img(url:String):Bitmap?{
             var bmp:Bitmap?=null

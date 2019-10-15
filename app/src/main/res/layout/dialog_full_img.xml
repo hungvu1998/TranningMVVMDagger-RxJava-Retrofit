@@ -4,13 +4,13 @@
         android:layout_width="match_parent"
 
         android:layout_height="match_parent">
-    <ImageView
+    <com.github.chrisbanes.photoview.PhotoView
             android:layout_width="match_parent"
                 android:src="@drawable/banner"
             android:id="@+id/img_anh"
             android:minHeight="400dp"
             android:minWidth="400dp"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:layout_height="match_parent"/>
 
 </LinearLayout>

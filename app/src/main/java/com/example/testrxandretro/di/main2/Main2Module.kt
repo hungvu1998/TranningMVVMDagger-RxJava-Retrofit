@@ -1,6 +1,8 @@
 package com.example.testrxandretro.di.main2
 
 import com.example.testrxandretro.network.main2.Main2Api
+import com.example.testrxandretro.ui.main2.dog.DogRecyclerAdapter
+import com.example.testrxandretro.util.Utils
 
 import dagger.Module
 import dagger.Provides

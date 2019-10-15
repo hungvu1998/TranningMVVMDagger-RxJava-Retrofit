@@ -28,7 +28,7 @@ public final class BreedDao_Impl implements BreedDao {
     this.__insertionAdapterOfBreedModel = new EntityInsertionAdapter<BreedModel>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR REPLACE INTO `BreedModel`(`id`,`breedName`,`img`) VALUES (?,?,?)";
+        return "INSERT OR REPLACE INTO `BreedModel`(`id`,`breedName`,`img`,`imgbyte`) VALUES (?,?,?,?)";
       }
 
       @Override
@@ -43,6 +43,11 @@ public final class BreedDao_Impl implements BreedDao {
           stmt.bindNull(3);
         } else {
           stmt.bindString(3, value.getImg());
+        }
+        if (value.getImgbyte() == null) {
+          stmt.bindNull(4);
+        } else {
+          stmt.bindBlob(4, value.getImgbyte());
         }
       }
     };
@@ -93,6 +98,7 @@ public final class BreedDao_Impl implements BreedDao {
           final int _cursorIndexOfId = _cursor.getColumnIndexOrThrow("id");
           final int _cursorIndexOfBreedName = _cursor.getColumnIndexOrThrow("breedName");
           final int _cursorIndexOfImg = _cursor.getColumnIndexOrThrow("img");
+          final int _cursorIndexOfImgbyte = _cursor.getColumnIndexOrThrow("imgbyte");
           final BreedModel _result;
           if(_cursor.moveToFirst()) {
             final int _tmpId;
@@ -101,7 +107,9 @@ public final class BreedDao_Impl implements BreedDao {
             _tmpBreedName = _cursor.getString(_cursorIndexOfBreedName);
             final String _tmpImg;
             _tmpImg = _cursor.getString(_cursorIndexOfImg);
-            _result = new BreedModel(_tmpId,_tmpBreedName,_tmpImg);
+            final byte[] _tmpImgbyte;
+            _tmpImgbyte = _cursor.getBlob(_cursorIndexOfImgbyte);
+            _result = new BreedModel(_tmpId,_tmpBreedName,_tmpImg,_tmpImgbyte);
           } else {
             _result = null;
           }
@@ -127,6 +135,7 @@ public final class BreedDao_Impl implements BreedDao {
       final int _cursorIndexOfId = _cursor.getColumnIndexOrThrow("id");
       final int _cursorIndexOfBreedName = _cursor.getColumnIndexOrThrow("breedName");
       final int _cursorIndexOfImg = _cursor.getColumnIndexOrThrow("img");
+      final int _cursorIndexOfImgbyte = _cursor.getColumnIndexOrThrow("imgbyte");
       final BreedModel[] _result = new BreedModel[_cursor.getCount()];
       int _index = 0;
       while(_cursor.moveToNext()) {
@@ -137,7 +146,9 @@ public final class BreedDao_Impl implements BreedDao {
         _tmpBreedName = _cursor.getString(_cursorIndexOfBreedName);
         final String _tmpImg;
         _tmpImg = _cursor.getString(_cursorIndexOfImg);
-        _item = new BreedModel(_tmpId,_tmpBreedName,_tmpImg);
+        final byte[] _tmpImgbyte;
+        _tmpImgbyte = _cursor.getBlob(_cursorIndexOfImgbyte);
+        _item = new BreedModel(_tmpId,_tmpBreedName,_tmpImg,_tmpImgbyte);
         _result[_index] = _item;
         _index ++;
       }

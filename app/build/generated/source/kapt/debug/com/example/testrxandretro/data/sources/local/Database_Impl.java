@@ -27,13 +27,13 @@ public final class Database_Impl extends Database {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(3) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(10) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `BreedModel` (`id` INTEGER NOT NULL, `breedName` TEXT NOT NULL, `img` TEXT NOT NULL, PRIMARY KEY(`id`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `BreedModel` (`id` INTEGER NOT NULL, `breedName` TEXT NOT NULL, `img` TEXT NOT NULL, `imgbyte` BLOB, PRIMARY KEY(`id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Breeds` (`id` INTEGER NOT NULL, `breedName` TEXT NOT NULL, PRIMARY KEY(`id`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"b410f16b27aac160bc0862c002700eee\")");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"f59de8a2bd5a3557d1c9362af8c84070\")");
       }
 
       @Override
@@ -64,10 +64,11 @@ public final class Database_Impl extends Database {
 
       @Override
       protected void validateMigration(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsBreedModel = new HashMap<String, TableInfo.Column>(3);
+        final HashMap<String, TableInfo.Column> _columnsBreedModel = new HashMap<String, TableInfo.Column>(4);
         _columnsBreedModel.put("id", new TableInfo.Column("id", "INTEGER", true, 1));
         _columnsBreedModel.put("breedName", new TableInfo.Column("breedName", "TEXT", true, 0));
         _columnsBreedModel.put("img", new TableInfo.Column("img", "TEXT", true, 0));
+        _columnsBreedModel.put("imgbyte", new TableInfo.Column("imgbyte", "BLOB", false, 0));
         final HashSet<TableInfo.ForeignKey> _foreignKeysBreedModel = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesBreedModel = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoBreedModel = new TableInfo("BreedModel", _columnsBreedModel, _foreignKeysBreedModel, _indicesBreedModel);
@@ -90,7 +91,7 @@ public final class Database_Impl extends Database {
                   + " Found:\n" + _existingBreeds);
         }
       }
-    }, "b410f16b27aac160bc0862c002700eee", "9a9b37406b16ac2f83dc6b55fc6bebf8");
+    }, "f59de8a2bd5a3557d1c9362af8c84070", "a3d5b215fd17db59b1ff9df9bddfbf67");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

@@ -28,6 +28,7 @@ import androidx.lifecycle.Observer
 import com.example.testrxandretro.data.model.BreedModel
 import com.example.testrxandretro.ui.main2.detaildog.DetailDogFragment
 import com.example.testrxandretro.ui.popup.PopUpFullImage
+import com.example.testrxandretro.util.Utils
 
 
 class DogFragment : DaggerFragment(),RecyclerClickItem{
@@ -38,6 +39,9 @@ class DogFragment : DaggerFragment(),RecyclerClickItem{
         intent.putExtra("img",img)
         startActivity(intent)
     }
+
+    @Inject
+    lateinit var utils: Utils
 
     @Inject
     lateinit var providerFactory: ViewModelProvidersFactory
@@ -107,7 +111,7 @@ class DogFragment : DaggerFragment(),RecyclerClickItem{
         }
     }
     private fun initRecyclerView() {
-        adapter= DogRecyclerAdapter(this)
+        adapter= DogRecyclerAdapter(this,utils)
         adapter.setBreedList(listBreed)
         val layoutManager=GridLayoutManager(activity,2)
         recyclerDogs.layoutManager = layoutManager
@@ -130,67 +134,14 @@ class DogFragment : DaggerFragment(),RecyclerClickItem{
                 for (i in 0 until count) {
                     val imageUri = data.clipData!!.getItemAt(i).uri
                     listBreed.add(BreedModel(0,listBreed[0].breedName,imageUri.toString()))
-
                 }
             }
             else if (data.data != null) {
                 listBreed.add(BreedModel(0,listBreed[0].breedName,data.data.toString()))
 
             }
-
             adapter.setBreedList(listBreed)
         }
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d("kiemtra","onDestroy")
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        Log.d("kiemtra","onDestroyView")
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        Log.d("kiemtra","onDetach")
-
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        Log.d("kiemtra","onAttach")
-    }
-
-    override fun onAttachFragment(childFragment: Fragment) {
-        super.onAttachFragment(childFragment)
-        Log.d("kiemtra","onAttachFragment")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d("kiemtra","onPause")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d("kiemtra","onStop")
-    }
-
-    override fun onStart() {
-        super.onStart()
-        Log.d("kiemtra","onStart")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d("kiemtra","onResume")
-    }
-
-
-
-
-
 
 }

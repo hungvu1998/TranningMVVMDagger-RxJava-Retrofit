@@ -2,8 +2,11 @@ package com.example.testrxandretro.ui.main2.dog;
 
 import java.lang.System;
 
-@kotlin.Metadata(mv = {1, 1, 15}, bv = {1, 0, 3}, k = 1, d1 = {"\u0000\u0090\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010\u0015\n\u0002\b\n\u0018\u00002\u00020\u00012\u00020\u0002B\u0005\u00a2\u0006\u0002\u0010\u0003J\u0010\u0010$\u001a\u00020%2\u0006\u0010&\u001a\u00020\'H\u0016J\b\u0010(\u001a\u00020%H\u0002J\u0012\u0010)\u001a\u00020%2\b\u0010*\u001a\u0004\u0018\u00010+H\u0016J\"\u0010,\u001a\u00020%2\u0006\u0010-\u001a\u00020\u00052\u0006\u0010.\u001a\u00020\u00052\b\u0010/\u001a\u0004\u0018\u000100H\u0017J\u0010\u00101\u001a\u00020%2\u0006\u00102\u001a\u000203H\u0016J\u0010\u00104\u001a\u00020%2\u0006\u00105\u001a\u000206H\u0016J\u0012\u00107\u001a\u00020%2\b\u0010*\u001a\u0004\u0018\u00010+H\u0016J&\u00108\u001a\u0004\u0018\u0001092\u0006\u0010:\u001a\u00020;2\b\u0010<\u001a\u0004\u0018\u00010=2\b\u0010*\u001a\u0004\u0018\u00010+H\u0016J\b\u0010>\u001a\u00020%H\u0016J\b\u0010?\u001a\u00020%H\u0016J\b\u0010@\u001a\u00020%H\u0016J\b\u0010A\u001a\u00020%H\u0016J-\u0010B\u001a\u00020%2\u0006\u0010-\u001a\u00020\u00052\u000e\u0010C\u001a\n\u0012\u0006\b\u0001\u0012\u00020\'0D2\u0006\u0010E\u001a\u00020FH\u0016\u00a2\u0006\u0002\u0010GJ\b\u0010H\u001a\u00020%H\u0016J\b\u0010I\u001a\u00020%H\u0016J\b\u0010J\u001a\u00020%H\u0016J\u0006\u0010K\u001a\u00020%J\u0006\u0010L\u001a\u00020%J\u001e\u0010M\u001a\u00020%2\u0016\u0010\u0016\u001a\u0012\u0012\u0004\u0012\u00020\u00180\u0017j\b\u0012\u0004\u0012\u00020\u0018`\u0019J\b\u0010N\u001a\u00020%H\u0002J\u0006\u0010O\u001a\u00020%R\u0014\u0010\u0004\u001a\u00020\u0005X\u0086D\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0006\u0010\u0007R\u0014\u0010\b\u001a\u00020\u0005X\u0086D\u00a2\u0006\b\n\u0000\u001a\u0004\b\t\u0010\u0007R\u001a\u0010\n\u001a\u00020\u000bX\u0086.\u00a2\u0006\u000e\n\u0000\u001a\u0004\b\f\u0010\r\"\u0004\b\u000e\u0010\u000fR\u001a\u0010\u0010\u001a\u00020\u0011X\u0086.\u00a2\u0006\u000e\n\u0000\u001a\u0004\b\u0012\u0010\u0013\"\u0004\b\u0014\u0010\u0015R*\u0010\u0016\u001a\u0012\u0012\u0004\u0012\u00020\u00180\u0017j\b\u0012\u0004\u0012\u00020\u0018`\u0019X\u0086\u000e\u00a2\u0006\u000e\n\u0000\u001a\u0004\b\u001a\u0010\u001b\"\u0004\b\u001c\u0010\u001dR\u001e\u0010\u001e\u001a\u00020\u001f8\u0006@\u0006X\u0087.\u00a2\u0006\u000e\n\u0000\u001a\u0004\b \u0010!\"\u0004\b\"\u0010#\u00a8\u0006P"}, d2 = {"Lcom/example/testrxandretro/ui/main2/dog/DogFragment;", "Ldagger/android/support/DaggerFragment;", "Lcom/example/testrxandretro/ui/main2/dog/RecyclerClickItem;", "()V", "PICK_IMAGE", "", "getPICK_IMAGE", "()I", "REQUEST_PERMISSION_STORAGE", "getREQUEST_PERMISSION_STORAGE", "adapter", "Lcom/example/testrxandretro/ui/main2/dog/DogRecyclerAdapter;", "getAdapter", "()Lcom/example/testrxandretro/ui/main2/dog/DogRecyclerAdapter;", "setAdapter", "(Lcom/example/testrxandretro/ui/main2/dog/DogRecyclerAdapter;)V", "dogViewModel", "Lcom/example/testrxandretro/ui/main2/dog/DogViewModel;", "getDogViewModel", "()Lcom/example/testrxandretro/ui/main2/dog/DogViewModel;", "setDogViewModel", "(Lcom/example/testrxandretro/ui/main2/dog/DogViewModel;)V", "listBreed", "Ljava/util/ArrayList;", "Lcom/example/testrxandretro/data/model/BreedModel;", "Lkotlin/collections/ArrayList;", "getListBreed", "()Ljava/util/ArrayList;", "setListBreed", "(Ljava/util/ArrayList;)V", "providerFactory", "Lcom/example/testrxandretro/viewmodels/ViewModelProvidersFactory;", "getProviderFactory", "()Lcom/example/testrxandretro/viewmodels/ViewModelProvidersFactory;", "setProviderFactory", "(Lcom/example/testrxandretro/viewmodels/ViewModelProvidersFactory;)V", "doThis", "", "img", "", "initRecyclerView", "onActivityCreated", "savedInstanceState", "Landroid/os/Bundle;", "onActivityResult", "requestCode", "resultCode", "data", "Landroid/content/Intent;", "onAttach", "context", "Landroid/content/Context;", "onAttachFragment", "childFragment", "Landroidx/fragment/app/Fragment;", "onCreate", "onCreateView", "Landroid/view/View;", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "onDestroy", "onDestroyView", "onDetach", "onPause", "onRequestPermissionsResult", "permissions", "", "grantResults", "", "(I[Ljava/lang/String;[I)V", "onResume", "onStart", "onStop", "permission", "replaceFragment", "setModel", "subscribeObervers", "succesPermission", "app_debug"})
+@kotlin.Metadata(mv = {1, 1, 15}, bv = {1, 0, 3}, k = 1, d1 = {"\u0000\u0088\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010\u0015\n\u0002\b\u0007\u0018\u00002\u00020\u00012\u00020\u0002B\u0005\u00a2\u0006\u0002\u0010\u0003J\u0010\u0010*\u001a\u00020+2\u0006\u0010,\u001a\u00020-H\u0016J\b\u0010.\u001a\u00020+H\u0002J\u0012\u0010/\u001a\u00020+2\b\u00100\u001a\u0004\u0018\u000101H\u0016J\"\u00102\u001a\u00020+2\u0006\u00103\u001a\u00020\u00052\u0006\u00104\u001a\u00020\u00052\b\u00105\u001a\u0004\u0018\u000106H\u0017J\u0012\u00107\u001a\u00020+2\b\u00100\u001a\u0004\u0018\u000101H\u0016J&\u00108\u001a\u0004\u0018\u0001092\u0006\u0010:\u001a\u00020;2\b\u0010<\u001a\u0004\u0018\u00010=2\b\u00100\u001a\u0004\u0018\u000101H\u0016J-\u0010>\u001a\u00020+2\u0006\u00103\u001a\u00020\u00052\u000e\u0010?\u001a\n\u0012\u0006\b\u0001\u0012\u00020-0@2\u0006\u0010A\u001a\u00020BH\u0016\u00a2\u0006\u0002\u0010CJ\u0006\u0010D\u001a\u00020+J\u0006\u0010E\u001a\u00020+J\u001e\u0010F\u001a\u00020+2\u0016\u0010\u0016\u001a\u0012\u0012\u0004\u0012\u00020\u00180\u0017j\b\u0012\u0004\u0012\u00020\u0018`\u0019J\b\u0010G\u001a\u00020+H\u0002J\u0006\u0010H\u001a\u00020+R\u0014\u0010\u0004\u001a\u00020\u0005X\u0086D\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0006\u0010\u0007R\u0014\u0010\b\u001a\u00020\u0005X\u0086D\u00a2\u0006\b\n\u0000\u001a\u0004\b\t\u0010\u0007R\u001a\u0010\n\u001a\u00020\u000bX\u0086.\u00a2\u0006\u000e\n\u0000\u001a\u0004\b\f\u0010\r\"\u0004\b\u000e\u0010\u000fR\u001a\u0010\u0010\u001a\u00020\u0011X\u0086.\u00a2\u0006\u000e\n\u0000\u001a\u0004\b\u0012\u0010\u0013\"\u0004\b\u0014\u0010\u0015R*\u0010\u0016\u001a\u0012\u0012\u0004\u0012\u00020\u00180\u0017j\b\u0012\u0004\u0012\u00020\u0018`\u0019X\u0086\u000e\u00a2\u0006\u000e\n\u0000\u001a\u0004\b\u001a\u0010\u001b\"\u0004\b\u001c\u0010\u001dR\u001e\u0010\u001e\u001a\u00020\u001f8\u0006@\u0006X\u0087.\u00a2\u0006\u000e\n\u0000\u001a\u0004\b \u0010!\"\u0004\b\"\u0010#R\u001e\u0010$\u001a\u00020%8\u0006@\u0006X\u0087.\u00a2\u0006\u000e\n\u0000\u001a\u0004\b&\u0010\'\"\u0004\b(\u0010)\u00a8\u0006I"}, d2 = {"Lcom/example/testrxandretro/ui/main2/dog/DogFragment;", "Ldagger/android/support/DaggerFragment;", "Lcom/example/testrxandretro/ui/main2/dog/RecyclerClickItem;", "()V", "PICK_IMAGE", "", "getPICK_IMAGE", "()I", "REQUEST_PERMISSION_STORAGE", "getREQUEST_PERMISSION_STORAGE", "adapter", "Lcom/example/testrxandretro/ui/main2/dog/DogRecyclerAdapter;", "getAdapter", "()Lcom/example/testrxandretro/ui/main2/dog/DogRecyclerAdapter;", "setAdapter", "(Lcom/example/testrxandretro/ui/main2/dog/DogRecyclerAdapter;)V", "dogViewModel", "Lcom/example/testrxandretro/ui/main2/dog/DogViewModel;", "getDogViewModel", "()Lcom/example/testrxandretro/ui/main2/dog/DogViewModel;", "setDogViewModel", "(Lcom/example/testrxandretro/ui/main2/dog/DogViewModel;)V", "listBreed", "Ljava/util/ArrayList;", "Lcom/example/testrxandretro/data/model/BreedModel;", "Lkotlin/collections/ArrayList;", "getListBreed", "()Ljava/util/ArrayList;", "setListBreed", "(Ljava/util/ArrayList;)V", "providerFactory", "Lcom/example/testrxandretro/viewmodels/ViewModelProvidersFactory;", "getProviderFactory", "()Lcom/example/testrxandretro/viewmodels/ViewModelProvidersFactory;", "setProviderFactory", "(Lcom/example/testrxandretro/viewmodels/ViewModelProvidersFactory;)V", "utils", "Lcom/example/testrxandretro/util/Utils;", "getUtils", "()Lcom/example/testrxandretro/util/Utils;", "setUtils", "(Lcom/example/testrxandretro/util/Utils;)V", "doThis", "", "img", "", "initRecyclerView", "onActivityCreated", "savedInstanceState", "Landroid/os/Bundle;", "onActivityResult", "requestCode", "resultCode", "data", "Landroid/content/Intent;", "onCreate", "onCreateView", "Landroid/view/View;", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "onRequestPermissionsResult", "permissions", "", "grantResults", "", "(I[Ljava/lang/String;[I)V", "permission", "replaceFragment", "setModel", "subscribeObervers", "succesPermission", "app_debug"})
 public final class DogFragment extends dagger.android.support.DaggerFragment implements com.example.testrxandretro.ui.main2.dog.RecyclerClickItem {
+    @org.jetbrains.annotations.NotNull()
+    @javax.inject.Inject()
+    public com.example.testrxandretro.util.Utils utils;
     @org.jetbrains.annotations.NotNull()
     @javax.inject.Inject()
     public com.example.testrxandretro.viewmodels.ViewModelProvidersFactory providerFactory;
@@ -20,6 +23,15 @@ public final class DogFragment extends dagger.android.support.DaggerFragment imp
     @java.lang.Override()
     public void doThis(@org.jetbrains.annotations.NotNull()
     java.lang.String img) {
+    }
+    
+    @org.jetbrains.annotations.NotNull()
+    public final com.example.testrxandretro.util.Utils getUtils() {
+        return null;
+    }
+    
+    public final void setUtils(@org.jetbrains.annotations.NotNull()
+    com.example.testrxandretro.util.Utils p0) {
     }
     
     @org.jetbrains.annotations.NotNull()
@@ -114,44 +126,6 @@ public final class DogFragment extends dagger.android.support.DaggerFragment imp
     @java.lang.Override()
     public void onActivityResult(int requestCode, int resultCode, @org.jetbrains.annotations.Nullable()
     android.content.Intent data) {
-    }
-    
-    @java.lang.Override()
-    public void onDestroy() {
-    }
-    
-    @java.lang.Override()
-    public void onDestroyView() {
-    }
-    
-    @java.lang.Override()
-    public void onDetach() {
-    }
-    
-    @java.lang.Override()
-    public void onAttach(@org.jetbrains.annotations.NotNull()
-    android.content.Context context) {
-    }
-    
-    @java.lang.Override()
-    public void onAttachFragment(@org.jetbrains.annotations.NotNull()
-    androidx.fragment.app.Fragment childFragment) {
-    }
-    
-    @java.lang.Override()
-    public void onPause() {
-    }
-    
-    @java.lang.Override()
-    public void onStop() {
-    }
-    
-    @java.lang.Override()
-    public void onStart() {
-    }
-    
-    @java.lang.Override()
-    public void onResume() {
     }
     
     public DogFragment() {

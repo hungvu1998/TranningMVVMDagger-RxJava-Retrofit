@@ -811,6 +811,8 @@ public final class DaggerAppComponent implements AppComponent {
       private DogFragment injectDogFragment(DogFragment instance) {
         DaggerFragment_MembersInjector.injectChildFragmentInjector(
             instance, Main2ActivitySubcomponentImpl.this.getDispatchingAndroidInjectorOfFragment());
+        DogFragment_MembersInjector.injectUtils(
+            instance, DaggerAppComponent.this.provideUtilsProvider.get());
         DogFragment_MembersInjector.injectProviderFactory(
             instance, Main2ActivitySubcomponentImpl.this.getViewModelProvidersFactory());
         return instance;
